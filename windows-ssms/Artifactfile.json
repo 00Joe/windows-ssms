@@ -8,6 +8,12 @@
     "iconUri": "",
     "targetOsType": "Windows",
     "runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1 -PackageList ', 'sql-server-management-studio', '\"')]"
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1 -PackageList ', 'sql-server-management-studio', '\"'),
+							$TargetFile = "$env:ProgramFiles(x86)\MicrosoftSQLServer\120\Tools\Binn\ManagementStudio\Ssms.exe",
+							$ShortcutFile = "$env:Public\Desktop\Ssms.lnk",
+							$WScriptShell = New-Object -ComObject WScript.Shell,
+							$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile),
+							$Shortcut.TargetPath = $TargetFile,
+							$Shortcut.Save()]"
     }
 }
