@@ -8,6 +8,6 @@
     "iconUri": "",
     "targetOsType": "Windows",
     "runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1 -PackageList ', 'sql-server-management-studio', '\"')]"
+        "commandToExecute": "powershell.exe -executionpolicy bypass -File startChocolatey.ps1 -PackageList sql-server-management-studio"
     }
 }
